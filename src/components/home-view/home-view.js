@@ -14,7 +14,6 @@ export default class HomeView extends React.Component {
   @observable totalGuesses = 0;
   @observable correctGuesses = 0;
   @observable answeredExamples = [];
-  @observable drawAnswered = false;
 
   constructor(props) {
     super(props);
