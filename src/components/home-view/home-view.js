@@ -71,6 +71,10 @@ export default class HomeView extends React.Component {
     this.selectedFallacy = null;
     this.currentFallacyExample = _.sample(this.unansweredExamples);
     this.currentFallacy = this.getFallacyByExample(this.currentFallacyExample)
+
+    setTimeout(() => {
+      this.refs.fallaciesSelect.focus();
+    });
   }
 
   @action resetUnansweredExamples() {
@@ -119,10 +123,11 @@ export default class HomeView extends React.Component {
 
             <div>
               <Select
-              options={_.map(fallacies, flc => {
+              ref="fallaciesSelect"
+              options={_.map(_.sortBy(fallacies, 'name'), flc => {
                 return {
                   value: flc.id,
-                  label: flc.name,
+                  label: `${flc.name}${flc.info ? ` – ${flc.info}` : ''}`,
                 };
               })}
               value={_.get(this.selectedFallacy, 'id')}
@@ -147,12 +152,12 @@ export default class HomeView extends React.Component {
 
                   <button
                   disabled={!this.selectedFallacyIsCorrect}
+                  autoFocus
                   onClick={e => this.drawUnansweredExample()}
                   >Next</button>
                 </div>
               }
 
-              <p>{this.currentFallacy.info}</p>
               <p>{this.currentFallacy.description}</p>
             </div>
           </div>
