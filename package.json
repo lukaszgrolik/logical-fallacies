@@ -3,7 +3,7 @@
     "start": "webpack-dev-server --progress"
   },
   "dependencies": {
-    "lodash": "^4.17.3",
+    "lodash": "^4.17.4",
     "mobx": "^2.7.0",
     "mobx-react": "^4.0.4",
     "react": "^15.4.1",
@@ -11,7 +11,7 @@
     "react-select": "^1.0.0-rc.2"
   },
   "devDependencies": {
-    "autoprefixer": "^6.6.0",
+    "autoprefixer": "^6.6.1",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-plugin-add-module-exports": "^0.2.1",
